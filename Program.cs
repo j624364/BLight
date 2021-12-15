@@ -67,6 +67,17 @@ void writeValue(int val)
 	File.WriteAllText(brightnessFilePath, brightnessFileContents);
 }
 
+void writeDifference(int difference)
+{
+	int? currentVal = getCurrentVal();
+	if (currentVal == null)
+	{
+		return;
+	}
+
+	writeValue((int)currentVal + difference);
+}
+
 void writeUsage()
 {
 	Console.WriteLine("Usage: ./BLight");
@@ -78,11 +89,11 @@ if (args.Length == 0)
 }
 else if (args[0] == "inc")
 {
-	Console.WriteLine("Increment");
+	writeDifference(difference);
 }
 else if (args[0] == "dec")
 {
-	Console.WriteLine("Decrement");
+	writeDifference(-difference);
 }
 else
 {
