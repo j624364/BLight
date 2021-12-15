@@ -35,6 +35,26 @@ string? getBrightnessFilePath()
 	return null;
 }
 
+int? getCurrentVal()
+{
+	string? brightnessFilePath = getBrightnessFilePath();
+	if (brightnessFilePath == null)
+	{
+		return null;
+	}
+
+	string brightnessFileContents = File.ReadAllText(brightnessFilePath).Trim();
+
+	try
+	{
+		return Convert.ToInt32(brightnessFileContents);
+	}
+	catch
+	{
+		return null;
+	}
+}
+
 void writeValue(int val)
 {
 }
