@@ -92,6 +92,7 @@ void writeUsage()
 	Console.WriteLine();
 	Console.WriteLine(" inc     : Increment the brightness");
 	Console.WriteLine(" dec     : Decrement the brightness");
+	Console.WriteLine(" set val : Set the brightness");
 	Console.WriteLine(" help    : Display the usage");
 	Console.WriteLine();
 }
@@ -107,6 +108,31 @@ else if (args[0] == "inc")
 else if (args[0] == "dec")
 {
 	writeDifference(-difference);
+}
+else if (args[0] == "set")
+{
+	if (args.Length != 2)
+	{
+		writeUsage();
+	}
+	else
+	{
+		int? val;
+		try
+		{
+			val = Convert.ToInt32(args[1]);
+		}
+		catch
+		{
+			Console.WriteLine("Could not convert '" + args[1] + "' to an int!");
+			val = null;
+		}
+
+		if (val != null)
+		{
+			writeValue((int)val);
+		}
+	}
 }
 else if (args[0] == "help")
 {
