@@ -64,7 +64,14 @@ void writeValue(int val)
 	}
 
 	string brightnessFileContents = val.ToString();
-	File.WriteAllText(brightnessFilePath, brightnessFileContents);
+	try
+	{
+		File.WriteAllText(brightnessFilePath, brightnessFileContents);
+	}
+	catch
+	{
+		Console.WriteLine("Could not write file!");
+	}
 }
 
 void writeDifference(int difference)
