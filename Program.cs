@@ -57,6 +57,14 @@ int? getCurrentVal()
 
 void writeValue(int val)
 {
+	string? brightnessFilePath = getBrightnessFilePath();
+	if (brightnessFilePath == null)
+	{
+		return;
+	}
+
+	string brightnessFileContents = val.ToString();
+	File.WriteAllText(brightnessFilePath, brightnessFileContents);
 }
 
 void writeUsage()
