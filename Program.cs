@@ -70,7 +70,7 @@ void writeValue(int val)
 	}
 	catch
 	{
-		Console.WriteLine("Could not write file!");
+		Console.WriteLine("Could not write file");
 	}
 }
 
@@ -87,7 +87,13 @@ void writeDifference(int difference)
 
 void writeUsage()
 {
-	Console.WriteLine("Usage: ./BLight");
+	Console.WriteLine("Usage: ./BLight subcommand (options)");
+	Console.WriteLine("Subcommands:");
+	Console.WriteLine();
+	Console.WriteLine(" inc     : Increment the brightness");
+	Console.WriteLine(" dec     : Decrement the brightness");
+	Console.WriteLine(" help    : Display the usage");
+	Console.WriteLine();
 }
 
 if (args.Length == 0)
@@ -101,6 +107,10 @@ else if (args[0] == "inc")
 else if (args[0] == "dec")
 {
 	writeDifference(-difference);
+}
+else if (args[0] == "help")
+{
+	writeUsage();
 }
 else
 {
