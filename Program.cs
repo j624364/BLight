@@ -138,6 +138,18 @@ else if (args[0] == "help")
 {
 	writeUsage();
 }
+else if (args[0] == "get")
+{
+	try
+	{
+		string? brightnessFilePath = getBrightnessFilePath();
+		Console.WriteLine("path: " + brightnessFilePath);
+
+		int? currentVal = getCurrentVal();
+		Console.WriteLine("value: " + currentVal);
+	}
+	catch {}
+}
 else
 {
 	writeUsage();
