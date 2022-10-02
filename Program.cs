@@ -93,6 +93,7 @@ void writeUsage()
 	Console.WriteLine(" inc     : Increment the brightness");
 	Console.WriteLine(" dec     : Decrement the brightness");
 	Console.WriteLine(" set val : Set the brightness");
+	Console.WriteLine(" get     : Get the brightness");
 	Console.WriteLine(" help    : Display the usage");
 	Console.WriteLine();
 }
